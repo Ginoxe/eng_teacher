@@ -35,11 +35,14 @@ class EnglishTeacher():
         self.buttons = []
         self.buttons2 = []
         self.buttons3 = []
+        self.buttons4 = []
         self.dayLabel = QLabel()
         self.engLabel = QLabel()
         self.korLabel = QLabel()
+        self.senLabel = QLabel()
         self.back_btn1 = QPushButton()
         self.back_btn2 = QPushButton()
+        self.back_btn3 = QPushButton()
         self.hideButtons = []
         self.wordboxes = []
         self.memory = {}
@@ -121,6 +124,7 @@ class EnglishTeacher():
         self.sen_btn2 = QPushButton('Level 2', parent = self.mainWin)
         self.sen_btn2.setFont(QFont('Arial font', 45))
         self.sen_btn2.setGeometry(960, 640, 960, 440)
+        self.sen_btn2.clicked.connect(lambda: self.exlvl2())
         self.back_btn = QPushButton('Back', parent = self.mainWin)
         self.back_btn.setFont(QFont('Arial font', 15))
         self.back_btn.setGeometry(30, 900, 100, 100)
@@ -502,21 +506,21 @@ class EnglishTeacher():
 
         self.dayLabel.show()
 
-        self.day31_btn3.clicked.connect(lambda: self.exlvl1stage(31))
-        self.day32_btn3.clicked.connect(lambda: self.exlvl1stage(32))
-        self.day33_btn3.clicked.connect(lambda: self.exlvl1stage(33))
-        self.day34_btn3.clicked.connect(lambda: self.exlvl1stage(34))
-        self.day35_btn3.clicked.connect(lambda: self.exlvl1stage(35))
-        self.day36_btn3.clicked.connect(lambda: self.exlvl1stage(36))
-        self.day37_btn3.clicked.connect(lambda: self.exlvl1stage(37))
-        self.day38_btn3.clicked.connect(lambda: self.exlvl1stage(38))
-        self.day39_btn3.clicked.connect(lambda: self.exlvl1stage(39))
-        self.day40_btn3.clicked.connect(lambda: self.exlvl1stage(40))
-        self.day41_btn3.clicked.connect(lambda: self.exlvl1stage(41))
-        self.day42_btn3.clicked.connect(lambda: self.exlvl1stage(42))
-        self.day43_btn3.clicked.connect(lambda: self.exlvl1stage(43))
-        self.day44_btn3.clicked.connect(lambda: self.exlvl1stage(44))
-        self.day45_btn3.clicked.connect(lambda: self.exlvl1stage(45))
+        self.day31_btn3.clicked.connect(lambda: self.exlvl1stage(31, 1))
+        self.day32_btn3.clicked.connect(lambda: self.exlvl1stage(32, 1))
+        self.day33_btn3.clicked.connect(lambda: self.exlvl1stage(33, 1))
+        self.day34_btn3.clicked.connect(lambda: self.exlvl1stage(34, 1))
+        self.day35_btn3.clicked.connect(lambda: self.exlvl1stage(35, 1))
+        self.day36_btn3.clicked.connect(lambda: self.exlvl1stage(36, 1))
+        self.day37_btn3.clicked.connect(lambda: self.exlvl1stage(37, 1))
+        self.day38_btn3.clicked.connect(lambda: self.exlvl1stage(38, 1))
+        self.day39_btn3.clicked.connect(lambda: self.exlvl1stage(39, 1))
+        self.day40_btn3.clicked.connect(lambda: self.exlvl1stage(40, 1))
+        self.day41_btn3.clicked.connect(lambda: self.exlvl1stage(41, 1))
+        self.day42_btn3.clicked.connect(lambda: self.exlvl1stage(42, 1))
+        self.day43_btn3.clicked.connect(lambda: self.exlvl1stage(43, 1))
+        self.day44_btn3.clicked.connect(lambda: self.exlvl1stage(44, 1))
+        self.day45_btn3.clicked.connect(lambda: self.exlvl1stage(45, 1))
 
         self.back_btn1 = QPushButton('Back', parent = self.mainWin)
         self.back_btn1.setFont(QFont('Arial font', 15))
@@ -524,7 +528,69 @@ class EnglishTeacher():
         self.back_btn1.clicked.connect(lambda: self.vocabulary())
         self.back_btn1.show()
 
-    def exlvl1stage(self, day):
+    def exlvl2(self):
+        self.clearAll()
+
+        self.dayLabel = QLabel(' Select a Day', parent = self.mainWin)
+        self.dayLabel.setFont(QFont('Arial font', 90))
+        self.dayLabel.move(500, 0)
+        self.day31_btn4 = QPushButton('31', parent = self.mainWin)
+        self.day32_btn4 = QPushButton('32', parent = self.mainWin)
+        self.day33_btn4 = QPushButton('33', parent = self.mainWin)
+        self.day34_btn4 = QPushButton('34', parent = self.mainWin)
+        self.day35_btn4 = QPushButton('35', parent = self.mainWin)
+        self.day36_btn4 = QPushButton('36', parent = self.mainWin)
+        self.day37_btn4 = QPushButton('37', parent = self.mainWin)
+        self.day38_btn4 = QPushButton('38', parent = self.mainWin)
+        self.day39_btn4 = QPushButton('39', parent = self.mainWin)
+        self.day40_btn4 = QPushButton('40', parent = self.mainWin)
+        self.day41_btn4 = QPushButton('41', parent = self.mainWin)
+        self.day42_btn4 = QPushButton('42', parent = self.mainWin)
+        self.day43_btn4 = QPushButton('43', parent = self.mainWin)
+        self.day44_btn4 = QPushButton('44', parent = self.mainWin)
+        self.day45_btn4 = QPushButton('45', parent = self.mainWin)
+        self.buttons4 = [self.day31_btn4, self.day32_btn4, self.day33_btn4, self.day34_btn4, self.day35_btn4,
+                         self.day36_btn4, self.day37_btn4, self.day38_btn4, self.day39_btn4, self.day40_btn4,
+                         self.day41_btn4, self.day42_btn4, self.day43_btn4, self.day44_btn4, self.day45_btn4]
+
+        j = 0
+        x = 340
+        for i in self.buttons4:
+            if j < 5:
+                i.setGeometry(x + (260 * j), 250, 200, 200)
+            elif 5 <= j < 10:
+                i.setGeometry(x + (260 * (j - 5)), 510, 200, 200)
+            else:
+                i.setGeometry(x + (260 * (j - 10)), 770, 200, 200)
+            i.setFont(QFont('Arial font', 40))
+            i.show()
+            j += 1
+
+        self.dayLabel.show()
+
+        self.day31_btn4.clicked.connect(lambda: self.exlvl1stage(31, 2))
+        self.day32_btn4.clicked.connect(lambda: self.exlvl1stage(32, 2))
+        self.day33_btn4.clicked.connect(lambda: self.exlvl1stage(33, 2))
+        self.day34_btn4.clicked.connect(lambda: self.exlvl1stage(34, 2))
+        self.day35_btn4.clicked.connect(lambda: self.exlvl1stage(35, 2))
+        self.day36_btn4.clicked.connect(lambda: self.exlvl1stage(36, 2))
+        self.day37_btn4.clicked.connect(lambda: self.exlvl1stage(37, 2))
+        self.day38_btn4.clicked.connect(lambda: self.exlvl1stage(38, 2))
+        self.day39_btn4.clicked.connect(lambda: self.exlvl1stage(39, 2))
+        self.day40_btn4.clicked.connect(lambda: self.exlvl1stage(40, 2))
+        self.day41_btn4.clicked.connect(lambda: self.exlvl1stage(41, 2))
+        self.day42_btn4.clicked.connect(lambda: self.exlvl1stage(42, 2))
+        self.day43_btn4.clicked.connect(lambda: self.exlvl1stage(43, 2))
+        self.day44_btn4.clicked.connect(lambda: self.exlvl1stage(44, 2))
+        self.day45_btn4.clicked.connect(lambda: self.exlvl1stage(45, 2))
+
+        self.back_btn1 = QPushButton('Back', parent = self.mainWin)
+        self.back_btn1.setFont(QFont('Arial font', 15))
+        self.back_btn1.setGeometry(30, 900, 100, 100)
+        self.back_btn1.clicked.connect(lambda: self.vocabulary())
+        self.back_btn1.show()
+
+    def exlvl1stage(self, day, lvl):
         self.clearAll()
 
         for i in self.buttons3:
@@ -535,10 +601,13 @@ class EnglishTeacher():
         sentences = list(selected_day.values())
         labeltext = ''
         for i in sentences:
-            labeltext += i[0] + ' (' + i[1] + ')\n'
-            senLabel = QLabel(labeltext, parent = self.mainWin)
-        senLabel.setFont(QFont('Arial font', 17))
-        senLabel.show()
+            if lvl == 1:
+                labeltext += i[0] + ' (' + i[1] + ')\n'
+            elif lvl == 2:
+                labeltext += i[0] + '\n'
+            self.senLabel = QLabel(labeltext, parent = self.mainWin)
+        self.senLabel.setFont(QFont('Arial font', 17))
+        self.senLabel.show()
 
         wordbox1 = QLineEdit('', parent = self.mainWin)
         wordbox1.returnPressed.connect(lambda: self.checkKeyword(day, 0, wordbox1.text()))
@@ -611,6 +680,12 @@ class EnglishTeacher():
             i.show()
             k += 1
 
+        self.back_btn3 = QPushButton('Back', parent = self.mainWin)
+        self.back_btn3.setFont(QFont('Arial font', 15))
+        self.back_btn3.setGeometry(1500, 100, 100, 100)
+        self.back_btn3.clicked.connect(lambda: self.exlvl1())
+        self.back_btn3.show()
+
     def checkKeyword(self, day, wordNum, text):
         if self.markLabels[wordNum].text():
             self.markLabels[wordNum].close()
@@ -626,9 +701,9 @@ class EnglishTeacher():
         self.markLabels[wordNum] = QLabel(correct, parent = self.mainWin)
         self.markLabels[wordNum].setFont(QFont('Arial font', 17))
         if correct == '○':
-            self.markLabels[wordNum].move(1690, 34 * wordNum)
+            self.markLabels[wordNum].move(1690, 32 * wordNum)
         else:
-            self.markLabels[wordNum].move(1695, 34 * wordNum)
+            self.markLabels[wordNum].move(1695, 32 * wordNum)
         self.markLabels[wordNum].show()
 
     def textbook(self):
@@ -666,6 +741,7 @@ class EnglishTeacher():
         self.back_btn.close()
         self.back_btn1.close()
         self.back_btn2.close()
+        self.back_btn3.close()
         self.dayLabel.close()
         for i in self.buttons:
             i.close()
@@ -675,8 +751,13 @@ class EnglishTeacher():
             i.close()
         for i in self.buttons3:
             i.close()
+        for i in self.buttons4:
+            i.close()
         for i in self.wordboxes:
             i.close()
+        for i in self.markLabels:
+            i.close()
+        self.senLabel.close()
         self.engLabel.close()
         self.korLabel.close()
     
